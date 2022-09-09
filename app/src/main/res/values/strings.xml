@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Internet Speed Monitor</string>
+    <string name="network_speed">Network Speed</string>
+    <string name="current_ntw_speed">Current Network Speed</string>
+    <string name="current_speed_text">Current Speed : %s</string>
+    <string name="min_speed_text">Minimum Speed : %s</string>
+    <string name="max_speed_text">Maximum Speed : %s</string>
+    <string name="mean_speed_text">Mean Speed : %s</string>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.internetspeedmonitor.viewmodel.InternetSpeedViewModel" />
+
+        <variable
+            name="utils"
+            type="com.example.internetspeedmonitor.utils.Utils.Companion" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/tvCurrentSpeed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/speed_text_margin"
+            android:layout_marginRight="@dimen/speed_text_margin"
+            android:padding="@dimen/speed_text_padding"
+            android:textColor="@color/black"
+            android:textSize="@dimen/speed_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tvMaxSpeed"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+            app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal15"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvMaxSpeed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/speed_text_margin"
+            android:layout_marginRight="@dimen/speed_text_margin"
+            android:padding="@dimen/speed_text_padding"
+            android:text='@{String.format(@string/max_speed_text,utils.formatSpeed(viewmodel.internetSpeedsLiveData.maxSpeed))}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/speed_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tvMinSpeed"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurrentSpeed" />
+
+        <TextView
+            android:id="@+id/tvMinSpeed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/speed_text_margin"
+            android:layout_marginRight="@dimen/speed_text_margin"
+            android:padding="@dimen/speed_text_padding"
+            android:text='@{String.format(@string/min_speed_text,utils.formatSpeed(viewmodel.internetSpeedsLiveData.minSpeed))}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/speed_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/tvMeanSpeed"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tvMaxSpeed" />
+
+        <TextView
+            android:id="@+id/tvMeanSpeed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/speed_text_margin"
+            android:layout_marginRight="@dimen/speed_text_margin"
+            android:padding="@dimen/speed_text_padding"
+            android:text='@{String.format(@string/mean_speed_text,utils.formatSpeed(viewmodel.internetSpeedsLiveData.meanSpeed))}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/speed_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal65"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+            app:layout_constraintTop_toBottomOf="@+id/tvMinSpeed" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="-1dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal65"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVertical90"
+            app:layout_constraintStart_toStartOf="@+id/guidelineVertical10"
+            app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontal15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontal65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVertical10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVertical90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
