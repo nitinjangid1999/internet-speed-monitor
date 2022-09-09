@@ -12,7 +12,7 @@
 
         <variable
             name="utils"
-            type="com.example.internetspeedmonitor.utils.Utils.Companion" />
+            type="com.example.internetspeedmonitor.model.utils.Utils.Companion" />
 
     </data>
 

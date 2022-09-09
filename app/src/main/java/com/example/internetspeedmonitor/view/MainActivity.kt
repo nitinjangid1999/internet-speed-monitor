@@ -8,9 +8,9 @@ import android.os.Bundle
 import android.os.IBinder
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.internetspeedmonitor.InternetSpeedMonitorService
+import com.example.internetspeedmonitor.model.service.InternetSpeedMonitorService
 import com.example.internetspeedmonitor.R
-import com.example.internetspeedmonitor.utils.Utils
+import com.example.internetspeedmonitor.model.utils.Utils
 import com.example.internetspeedmonitor.databinding.ActivityMainBinding
 import com.example.internetspeedmonitor.model.repository.InternetSpeedRepository
 import com.example.internetspeedmonitor.model.room.InternetRoomDatabase
@@ -74,12 +74,13 @@ class MainActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 while (true) {
+                    delay(1000)
                     val internetSpeed = service.getInternetSpeed()
                     activityMainBinding.tvCurrentSpeed.text = String.format(
                         getString(R.string.current_speed_text),
                         Utils.formatSpeed(internetSpeed)
                     )
-                    delay(10000)
+                    delay(9000)
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.internetspeedmonitor.utils
+package com.example.internetspeedmonitor.model.utils
 
 class Utils {
     companion object {

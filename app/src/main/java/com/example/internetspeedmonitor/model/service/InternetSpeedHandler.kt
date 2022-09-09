@@ -1,4 +1,4 @@
-package com.example.internetspeedmonitor
+package com.example.internetspeedmonitor.model.service
 
 import android.net.TrafficStats
 import kotlinx.coroutines.delay

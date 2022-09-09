@@ -1,4 +1,4 @@
-package com.example.internetspeedmonitor
+package com.example.internetspeedmonitor.model.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,13 +7,13 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.internetspeedmonitor.R
 import com.example.internetspeedmonitor.model.repository.InternetSpeedRepository
 import com.example.internetspeedmonitor.model.room.InternetRoomDatabase
 import com.example.internetspeedmonitor.model.room.InternetSpeed
-import com.example.internetspeedmonitor.utils.Utils
+import com.example.internetspeedmonitor.model.utils.Utils
 import com.example.internetspeedmonitor.view.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
