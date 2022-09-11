@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
         bindInternetSpeedService()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        unbindService(connection)
+    }
+
     private fun startInternetSpeedService() {
         val intent = Intent(this, InternetSpeedMonitorService::class.java)
         startForegroundService(intent)
@@ -60,6 +65,10 @@ class MainActivity : AppCompatActivity() {
             utils = Utils.Companion
             lifecycleOwner = this@MainActivity
         }
+        activityMainBinding.tvCurrentSpeed.text = String.format(
+            getString(R.string.current_speed_text),
+            Utils.formatSpeed(0)
+        )
     }
 
     private fun bindInternetSpeedService() {

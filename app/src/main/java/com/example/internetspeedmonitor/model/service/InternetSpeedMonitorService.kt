@@ -10,6 +10,7 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.internetspeedmonitor.R
+import com.example.internetspeedmonitor.model.broadcastreceiver.ServiceRestartBroadcastReceiver
 import com.example.internetspeedmonitor.model.repository.InternetSpeedRepository
 import com.example.internetspeedmonitor.model.room.InternetRoomDatabase
 import com.example.internetspeedmonitor.model.room.InternetSpeed
@@ -92,6 +93,12 @@ class InternetSpeedMonitorService : Service() {
 
     fun getInternetSpeed(): Long {
         return internetSpeed
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val intent = Intent(this, ServiceRestartBroadcastReceiver::class.java)
+        sendBroadcast(intent)
     }
 
     inner class InternetSpeedBinder : Binder() {

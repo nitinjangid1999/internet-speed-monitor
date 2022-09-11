@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <service android:name=".model.service.InternetSpeedMonitorService" />
+        <receiver android:name=".model.broadcastreceiver.ServiceRestartBroadcastReceiver" />
     </application>
 
 </manifest>
